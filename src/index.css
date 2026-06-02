@@ -1,0 +1,19 @@
+@import "tailwindcss" important;
+/* Make sure your Bootstrap import sits right above or below it */
+/*@import "./bootstrap/bootstrap.min.css";*/
+@import "bootstrap/dist/css/bootstrap.min.css";
+@theme {
+  /* 🛡️ This tells the v4 engine to expect 'tw-' in your React components */
+  --prefix: tw;
+}
+
+/* 💡 Tell Tailwind v4 to look for the .dark class on the <html> tag */
+@variant dark (&:where(.dark, .dark *));
+
+/* Global styles for smooth theme transitions across the whole page */
+@layer base {
+  html,
+  body {
+    @apply transition-colors duration-300;
+  }
+}
