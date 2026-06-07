@@ -48,7 +48,7 @@ function Header(props) {
               to="/shop"
               className=" font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors"
             >
-              All Products
+              Products
             </Link>
             <a className="font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors">
               Shirts
