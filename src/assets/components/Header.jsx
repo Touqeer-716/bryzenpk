@@ -38,16 +38,17 @@ function Header(props) {
           {/* Navigation Links */}
           {/* 💡 Cleaned: Removed manual text colors entirely. The links inherit beautifully. */}
           <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l flex flex-wrap items-center text-base justify-center">
-             <Link
+            <Link
               to="/"
-               className="font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors">
+              className="font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors"
+            >
               Home
-           </Link>
+            </Link>
             <Link
               to="/shop"
               className=" font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors"
             >
-              Products
+              All Products
             </Link>
             <a className="font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors">
               Shirts
