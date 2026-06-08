@@ -44,38 +44,39 @@ export default function Products2() {
           No products available at the moment.
         </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {products.map((product) => (
             <div
-              key={product.id} // ✅ FIXED: Changed from products.id to product.id
-              className="rounded-3xl p-2   border  flex flex-col justify-between"
+              key={product.id}
+              className="rounded-3xl overflow-hidden border  flex flex-col justify-between"
             >
               <div>
-                {/* ✅ FIXED: Reads full image URL directly from your JSON instead of using string prefix */}
                 <img
                   src={product.imgurl}
-                  alt={product.name} // ✅ FIXED: Changed from shirt.name to product.name
-                  className="w-full h-64 object-cover rounded-md mb-4"
+                  alt={product.name}
+                  className="w-full h-80 object-cover rounded-t-3xl mb-4 "
                   onError={(e) => {
                     e.target.src = "https://placehold.co/300x400?text=No+Image";
                   }}
                 />
-                <h2 className="text-lg font-semibol">
-                  {product.name}{" "}
-                  {/* ✅ FIXED: Changed from shirt.name to product.name */}
-                </h2>
-                <p className="text-md  ">
-                  {product.des}{" "}
-                  {/* ✅ FIXED: Changed from shirt.name to product.name */}
-                </p>
-              </div>
-              <div className="mt-4 flex justify-between items-center gap-4">
-                <span className="text-md font-bold rounded-2xl text-white bg-blue-600 hover:bg-red-700">
-                  Rs. {product.price}
-                </span>
-                <button className="rounded-3xl px-2 py-1 text-sm font-bold text-white bg-blue-600  hover:bg-red-700 transition">
+                <div className="px-4">
+                  <h2 className="text-lg font-semibold">
+                    {product.name}{" "}
+                    {/* ✅ FIXED: Changed from shirt.name to product.name */}
+                  </h2>
+                  <p className="text-md  ">
+                    {product.des}{" "}
+                    {/* ✅ FIXED: Changed from shirt.name to product.name */}
+                  </p>
+                </div>
+                <div className="mt-4 flex justify-between items-center gap-4 px-4 pb-2">
+                  <span className="text-md font-bold rounded-2xl ">
+                    PKR . {product.price}
+                  </span>
+                  <button className="rounded-full bg-amber-500 hover:bg-amber-700 text-slate-950 px-4 py-1.5 text-xs font-black uppercase tracking-wider transition-colors duration-200 cursor-pointer">
                   Add to Cart
                 </button>
+                </div>
               </div>
             </div>
           ))}

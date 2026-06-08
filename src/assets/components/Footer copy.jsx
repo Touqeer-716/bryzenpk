@@ -1,56 +1,56 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "./Logo.jsx";
 function Footer() {
   return (
     <>
       {/* Footer */}
       {/* <!-- Footer --> */}
       <footer className=" border-t-2 py-4 dark:border-slate-100 border-slate-950">
-        <div className=" container mx-auto p-2 px-1">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 items-start my-6">
-            {/* <!-- logo --> */}
-            <Logo />
-
+        <div className="">
+          <div className="">
             {/* <!-- Column 1 --> */}
-
-            <div className="text-center md:text-center">
+            <div>
               <h5>About Us</h5>
               <p>
-                We provide high-quality services We provide high-quality
-                services We provide high-quality services
+                We provide high-quality services and solutions for your business
+                needs.
               </p>
             </div>
-
             {/* <!-- Column 2 --> */}
-
-            <div className="text-center ">
-              <h5>Quick Links</h5>
-              <ul>
+            <div>
+              <h5>Quick NavLinks</h5>
+              <ul className="">
                 <li>
-                  <NavLink to="/">Home</NavLink>
+                  <NavLink className="" to="/">
+                    Home
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/shop">All Products</NavLink>
+                  <NavLink className="" to="/shop">
+                    All Products
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/shirts">Shirt's</NavLink>
+                  <NavLink className="" to="/shirts">
+                    Shirt's
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/about">About</NavLink>
+                  <NavLink className="" to="/about">
+                    About
+                  </NavLink>
                 </li>
               </ul>
             </div>
-
             {/* <!-- Column 3 --> */}
-            <div className="text-center md:text-center">
+            <div className="">
               <h5>Contact</h5>
               <p>Email: info@example.com</p>
               <p>Phone: +123 456 7890</p>
             </div>
           </div>
-
-          <div className="text-center border-t border-slate-800 dark:border-slate-100 pt-4 text-sm">
+          <hr className="border-slate-100" />
+          <div className="text-center pb-1 py-4">
             &copy; 2026 AHMEDSOFT. All rights reserved.
           </div>
         </div>

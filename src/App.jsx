@@ -12,6 +12,7 @@ import Footer2 from "./assets/components/Footer2.jsx";
 import LuxuryCarousel from "./assets/components/LuxuryCarousel";
 import { Outlet } from "react-router-dom";
 import Feature from "./assets/components/Feature.jsx";
+import test from "./assets/components/Test.jsx";
 function App(props) {
   const [alert, setAlert] = useState(null);
   //const [mode, setMode] = useState("light");

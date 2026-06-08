@@ -2,7 +2,7 @@
 @layer bootstrap, theme, base, components, utilities;
 
 /* 2. Lock Bootstrap into its own layer so it cannot override Tailwind utilities */
-@import "bootstrap/dist/css/bootstrap.min.css" layer(bootstrap);
+/* @import "bootstrap/dist/css/bootstrap.min.css" layer(bootstrap); */
 
 /* 3. Correct v4 Tailwind core engine import statement */
 @import "tailwindcss";
@@ -24,10 +24,10 @@
   /* Keep base tag styles flat (un-nested) to protect low selector specificity */
   a,
   .link {
-    @apply text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-slate-50  transition-colors duration-200;
+    @apply text-slate-600 dark:text-slate-400 hover:text-slate-50 hover:bg-amber-500 rounded-2xl  transition-colors duration-200;
 
     &.active {
-      @apply text-slate-950 dark:text-slate-50 font-bold underline underline-offset-4;
+      @apply bg-amber-700 rounded-2xl  text-slate-50 dark:text-slate-50 font-bold underline underline-offset-4;
     }
   }
 }
