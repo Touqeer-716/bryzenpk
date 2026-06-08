@@ -5,10 +5,10 @@ export default function Products2() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const api = "/ci4/api/product";
   // 2. Run the fetch operation when the component loads on the screen
   useEffect(() => {
-    fetch("/ci4/api/product") // Intercepted by Vite proxy locally, routes normally on server
+    fetch(api) // Intercepted by Vite proxy locally, routes normally on server
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Server responded with status: ${response.status}`);
@@ -48,7 +48,7 @@ export default function Products2() {
           {products.map((product) => (
             <div
               key={product.id} // ✅ FIXED: Changed from products.id to product.id
-              className="rounded-3xl p-2  bg-slate-100 text-slate-900 dark:text-slate-100 dark:bg-slate-900 border  flex flex-col justify-between"
+              className="rounded-3xl p-2   border  flex flex-col justify-between"
             >
               <div>
                 {/* ✅ FIXED: Reads full image URL directly from your JSON instead of using string prefix */}
@@ -70,10 +70,10 @@ export default function Products2() {
                 </p>
               </div>
               <div className="mt-4 flex justify-between items-center gap-4">
-                <span className="text-md font-bold rounded-2xl bg-yellow-400 hover:bg-blue-700">
+                <span className="text-md font-bold rounded-2xl bg-yellow-400 hover:bg-red-700">
                   Rs. {product.price}
                 </span>
-                <button className="rounded-3xl px-2 py-1 text-sm font-bold bg-red-600 text-white hover:bg-blue-700 transition">
+                <button className="rounded-3xl px-2 py-1 text-sm font-bold bg-blue-600 text-white hover:bg-red-700 transition">
                   Add to Cart
                 </button>
               </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 function Footer() {
   return (
     <>
@@ -18,27 +18,27 @@ function Footer() {
             </div>
             {/* <!-- Column 2 --> */}
             <div className="col-md-4 mb-3 ">
-              <h5>Quick Links</h5>
+              <h5>Quick NavLinks</h5>
               <ul className="list-unstyled">
                 <li>
-                  <Link className="" to="/">
+                  <NavLink className="" to="/">
                     Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link className="" to="/shop">
+                  <NavLink className="" to="/shop">
                     All Products
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link className="" to="/shirts">
+                  <NavLink className="" to="/shirts">
                     Shirt's
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link className="" to="/about">
+                  <NavLink className="" to="/about">
                     About
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>

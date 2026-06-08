@@ -1,14 +1,14 @@
 import React from "react";
 import Logo from "./Logo.jsx";
 import Logopng from "../images/bryzen.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header(props) {
   return (
     <>
       {/* 💡 INHERITANCE ROOT: We set the text colors once right here. 
           Everything inside this header will automatically adopt these colors! */}
-      <header className="w-full bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300 border-b border-slate-200 dark:border-slate-800">
+      <header className="w-full  border-b ">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           {/* Logo Section */}
           {/* <a className="flex title-font font-medium items-center mb-4 md:mb-0 cursor-pointer">
@@ -35,25 +35,25 @@ function Header(props) {
               <img src={Logopng} width="80" height="80" />{" "}
             </span>
           </a> */}
-          {/* Navigation Links */}
-          {/* 💡 Cleaned: Removed manual text colors entirely. The links inherit beautifully. */}
+          {/* Navigation NavLinks */}
+          {/* 💡 Cleaned: Removed manual text colors entirely. The NavLinks inherit beautifully. */}
           <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l flex flex-wrap items-center text-base justify-center">
-            <Link
+            <NavLink
               to="/"
-              className="font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors"
+              className="font-bold mr-5  cursor-pointer transition-colors"
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/shop"
-              className=" font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors"
+              className=" font-bold mr-5  cursor-pointer transition-colors"
             >
               Products
-            </Link>
-            <a className="font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors">
+            </NavLink>
+            <a className="font-bold mr-5  cursor-pointer transition-colors">
               Shirts
             </a>
-            <a className="font-bold mr-5 hover:text-gray-950 dark:hover:text-white cursor-pointer transition-colors">
+            <a className="font-bold mr-5  cursor-pointer transition-colors">
               Pants
             </a>
           </nav>

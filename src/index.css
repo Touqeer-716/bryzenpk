@@ -1,19 +1,33 @@
-@import "tailwindcss" important;
-/* Make sure your Bootstrap import sits right above or below it */
-/*@import "./bootstrap/bootstrap.min.css";*/
-@import "bootstrap/dist/css/bootstrap.min.css";
+/* 1. Establish the precise loading order of your CSS Cascade Layers */
+@layer bootstrap, theme, base, components, utilities;
+
+/* 2. Lock Bootstrap into its own layer so it cannot override Tailwind utilities */
+@import "bootstrap/dist/css/bootstrap.min.css" layer(bootstrap);
+
+/* 3. Correct v4 Tailwind core engine import statement */
+@import "tailwindcss";
+
 @theme {
-  /* 🛡️ This tells the v4 engine to expect 'tw-' in your React components */
-  --prefix: tw;
+  /* Add custom tokens or global overrides here if needed */
 }
 
-/* 💡 Tell Tailwind v4 to look for the .dark class on the <html> tag */
+/* 💡 Custom variant declaration for manual class-based dark mode toggle */
 @variant dark (&:where(.dark, .dark *));
 
-/* Global styles for smooth theme transitions across the whole page */
+/* 4. Global element resets and transitions */
 @layer base {
   html,
   body {
     @apply transition-colors duration-300;
+  }
+
+  /* Keep base tag styles flat (un-nested) to protect low selector specificity */
+  a,
+  .link {
+    @apply text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-slate-50  transition-colors duration-200;
+
+    &.active {
+      @apply text-slate-950 dark:text-slate-50 font-bold underline underline-offset-4;
+    }
   }
 }

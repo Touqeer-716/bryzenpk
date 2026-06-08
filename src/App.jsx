@@ -54,7 +54,7 @@ function App(props) {
   return (
     <>
       <div className={`${darkMode ? "dark" : ""}`}>
-        <div className="transition-colors duration-300 bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 p-0">
+        <div className=" transition-colors duration-300 bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 border-slate-200 dark:border-slate-800 p-0">
           {/* <Header darkMode={darkMode} setDarkMode={switchMode} /> */}
           <Alert alert={alert} />
           {/* 🏛️ Fixed Top Navigation Structure */}
