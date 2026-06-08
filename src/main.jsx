@@ -9,7 +9,7 @@ import "./index.css";
 // Importing your existing files
 import App from "./App.jsx";
 //import Products from "./products.jsx";
-import ProductGrid from "./assets/components/Products.jsx";
+import Products from "./assets/components/Products2.jsx";
 import LuxuryCarousel from "./assets/components/LuxuryCarousel.jsx";
 // 🗺️ Create the route layout map
 const router = createBrowserRouter([
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "shop", // This loads your products layout at "/shop"
         element: <LuxuryCarousel />,
-        element: <ProductGrid />,
+        element: <Products />,
       },
     ],
   },

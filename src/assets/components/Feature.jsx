@@ -2,7 +2,7 @@ import React from "react";
 
 export default function feature() {
   return (
-    <div className="bg-stone-50 text-stone-950 dark:bg-stone-950 dark:text-stone-50 ">
+    <div className=" ">
       <div className="container py-5">
         <h2 className="text-center mb-4">Featured Products</h2>
 

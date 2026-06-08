@@ -53,26 +53,27 @@ function App(props) {
   // }, []); // Run once on load
   return (
     <>
-      <div
-        className={`${darkMode ? "dark" : ""} transition-colors duration-300 bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white-900 p-0`}
-      >
-        {/* <Header darkMode={darkMode} setDarkMode={switchMode} /> */}
-        <Alert alert={alert} />
-        {/* 🏛️ Fixed Top Navigation Structure */}
-        <Header darkMode={darkMode} switchMode={switchMode} />
+      <div className={`${darkMode ? "dark" : ""}`}>
+        <div className="transition-colors duration-300 bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 p-0">
+          {/* <Header darkMode={darkMode} setDarkMode={switchMode} /> */}
+          <Alert alert={alert} />
+          {/* 🏛️ Fixed Top Navigation Structure */}
+          <Header darkMode={darkMode} switchMode={switchMode} />
 
-        {/* 🔮 Dynamic Window: This switches content based on whether URL is "/" or "/shop" */}
-        <main>
-          <Outlet />
-        </main>
-        <Feature />
-        {/* 📥 Fixed Bottom Informational Matrix */}
-        <Footer />
-        {/* <LuxuryCarousel /> */}
-        {/* <Logo /> */}
-        {/* <Products /> */}
-        {/* <Footer /> */}
-        {/* <Footer2 /> */}
+          {/* 🔮 Dynamic Window: This switches content based on whether URL is "/" or "/shop" */}
+          <main>
+            <Outlet />
+            {/* <Feature /> */}
+          </main>
+          <Footer />
+          {/* 📥 Fixed Bottom Informational Matrix */}
+
+          {/* <LuxuryCarousel /> */}
+          {/* <Logo /> */}
+          {/* <Products /> */}
+          {/* <Footer /> */}
+          {/* <Footer2 /> */}
+        </div>
       </div>
     </>
   );
