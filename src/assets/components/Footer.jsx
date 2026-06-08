@@ -5,7 +5,7 @@ function Footer() {
     <>
       {/* Footer */}
       {/* <!-- Footer --> */}
-      <footer className=" border-t-2 dark:border-slate-100 border-slate-950">
+      <footer className=" border-t-2 py-4 dark:border-slate-100 border-slate-950">
         <div className="container">
           <div className="row">
             {/* <!-- Column 1 --> */}
@@ -50,8 +50,8 @@ function Footer() {
             </div>
           </div>
           <hr className="border-light" />
-          <div className="text-center pb-3">
-            &copy; 2026 Your Company. All rights reserved.
+          <div className="text-center pb-1 py-4">
+            &copy; 2026 AHMEDSOFT. All rights reserved.
           </div>
         </div>
       </footer>

@@ -70,10 +70,10 @@ export default function Products2() {
                 </p>
               </div>
               <div className="mt-4 flex justify-between items-center gap-4">
-                <span className="text-md font-bold rounded-2xl bg-yellow-400 hover:bg-red-700">
+                <span className="text-md font-bold rounded-2xl text-white bg-blue-600 hover:bg-red-700">
                   Rs. {product.price}
                 </span>
-                <button className="rounded-3xl px-2 py-1 text-sm font-bold bg-blue-600 text-white hover:bg-red-700 transition">
+                <button className="rounded-3xl px-2 py-1 text-sm font-bold text-white bg-blue-600  hover:bg-red-700 transition">
                   Add to Cart
                 </button>
               </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Logo() {
   return (
-    <div className="flex flex-col items-center justify-center p-4 group select-none cursor-pointer">
+    <div className="flex flex-row gap-x-2 hover:gap-x-5 transition-all duration-300 items-center justify-center p-4 group select-none cursor-pointer">
       {/* 🏛️ Thin Roman Architectural Frame */}
       {/* Light: Deep Espresso-Bronze (#544338) | Dark: High-contrast Champagne Gold (#ebdccb) */}
       <div className="relative w-20 h-20 flex items-center justify-center border-2 border-[#544338]/40 dark:border-[#ebdccb]/40 p-2 transition-all duration-700 ease-out group-hover:border-[#544338] dark:group-hover:border-[#ebdccb] group-hover:rotate-45">
@@ -46,15 +46,14 @@ export default function Logo() {
         </svg>
       </div>
 
-      {/* ✒️ Editorial High-Heritage Typography */}
-      {/* Light text color is anchored to #261e1a | Dark text color shifts to elegant #ebdccb */}
-      <h2 className="mt-5 text-xl font-light tracking-[0.45em] font-serif text-[#261e1a] dark:text-[#ebdccb] transition-all duration-500 ease-in-out group-hover:tracking-[0.5em] group-hover:text-[#544338] dark:group-hover:text-[#f7f4f0]">
-        BRYZE’N
-      </h2>
-
       {/* Heritage Tagline Anchor */}
-      <div className="flex items-center gap-2 mt-2.5 opacity-60 transition-opacity duration-500 group-hover:opacity-100">
+      <div className="flex flex-col items-center gap-2 opacity-60 transition-opacity duration-500 group-hover:opacity-100">
         <div className="w-3 h-1px bg-[#544338] dark:bg-[#ebdccb]" />
+        {/* ✒️ Editorial High-Heritage Typography */}
+        {/* Light text color is anchored to #261e1a | Dark text color shifts to elegant #ebdccb */}
+        <h2 className=" text-xl font-light tracking-[0.45em] font-serif text-[#261e1a] dark:text-[#ebdccb] transition-all duration-500 ease-in-out group-hover:tracking-[0.5em] group-hover:text-[#544338] dark:group-hover:text-[#f7f4f0]">
+          BRYZE’N
+        </h2>
         <span className="text-4.5px  uppercase tracking-[0.45em] font-sans font-bold text-[#544338] dark:text-[#ebdccb]">
           SINCE 2026
         </span>
