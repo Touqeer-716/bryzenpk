@@ -14,7 +14,7 @@ export default defineConfig({
   server: {
     proxy: {
       // Intercept any local fetch request starting with '/api'
-      "/ci4": {
+      "/bryzenpk": {
         target: "http://127.0.0.1", // Forward it to your local CodeIgniter server
         changeOrigin: true, // Makes CodeIgniter think the request came from its own port
         secure: false, // Disables SSL checks for local testing
