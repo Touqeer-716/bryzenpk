@@ -9,6 +9,8 @@ import App from "./App.jsx";
 import LuxuryCarousel from "./assets/components/LuxuryCarousel.jsx";
 import Products from "./assets/components/Products.jsx";
 import CartView from "./assets/components/CartView.jsx";
+import AddProduct from "./assets/components/AddProduct.jsx";
+import Checkout from "./assets/components/Checkout.jsx";
 
 // 🗺️ Create the route layout map
 const router = createBrowserRouter([
@@ -30,13 +32,21 @@ const router = createBrowserRouter([
         element: (
           <>
             <LuxuryCarousel />,
-            <Products />,
+            <Products />
           </>
         ),
       },
       {
-        path: "shirts", // This loads your products layout at "/shop"
+        path: "cart", // This loads your products layout at "/shop"
         element: <CartView />,
+      },
+      {
+        path: "checkout", // This loads your products layout at "/shop"
+        element: <Checkout />,
+      },
+      {
+        path: "add", // This loads your products layout at "/shop"
+        element: <AddProduct />,
       },
     ],
   },

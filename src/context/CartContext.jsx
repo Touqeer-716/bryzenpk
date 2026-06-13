@@ -3,61 +3,75 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 const CartContext = createContext(null);
 
 export function CartProvider({ children }) {
-  // Read cart from browser storage on load
-  const [cartItems, setCartItems] = useState(() => {
-    const savedCart = localStorage.getItem("bryzen_cart");
-    return savedCart ? JSON.parse(savedCart) : [];
+  // Read cart from browser storage safely on initialization load
+  const [cart, setCart] = useState(() => {
+    try {
+      const savedCart = localStorage.getItem("bryzen_cart");
+      return savedCart ? JSON.parse(savedCart) : [];
+    } catch (error) {
+      console.error("Failed parsing cart cache initialization data:", error);
+      return [];
+    }
   });
 
-  // Automatically save to browser storage on change
+  // Automatically sync with disk storage whenever state structural vectors transition
   useEffect(() => {
-    localStorage.setItem("bryzen_cart", JSON.stringify(cartItems));
-  }, [cartItems]);
+    localStorage.setItem("bryzen_cart", JSON.stringify(cart));
+  }, [cart]);
 
-  // Core Cart Actions (Simplified: ID matching only)
-  const addToCart = (product, quantity = 1) => {
-    setCartItems((prev) => {
+  // 🎯 FIX: Unified targeting to use standard property name 'quantity' instead of 'qty'
+  const addToCart = (product, qtyDelta = 1) => {
+    setCart((prev) => {
       const existingIdx = prev.findIndex((item) => item.id === product.id);
 
       if (existingIdx > -1) {
         const updatedCart = [...prev];
-        updatedCart[existingIdx].qty += quantity;
+        updatedCart[existingIdx].quantity += qtyDelta;
         return updatedCart;
       }
 
-      return [...prev, { ...product, qty: quantity }];
+      return [...prev, { ...product, quantity: qtyDelta }];
     });
   };
 
   const updateQuantity = (id, delta) => {
-    setCartItems(
+    setCart(
       (prev) =>
         prev
           .map((item) =>
-            item.id === id ? { ...item, qty: item.qty + delta } : item,
+            item.id === id
+              ? { ...item, quantity: item.quantity + delta }
+              : item,
           )
-          .filter((item) => item.qty > 0), // Removes item if qty drops to 0
+          .filter((item) => item.quantity > 0), // Automatically drops record if subset hits absolute zero
     );
   };
 
   const removeItem = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  // Calculations
-  const cartCount = cartItems.reduce((acc, item) => acc + item.qty, 0);
-  const cartTotal = cartItems.reduce(
-    (acc, item) => acc + item.price * item.qty,
+  // 🎯 FIX: Added clear capability to purge local memory structures post checkout run
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  // Derived Performance Calculations loops
+  const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const cartTotal = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
     0,
   );
 
   return (
     <CartContext.Provider
       value={{
-        cartItems,
+        cart, // 🎯 Export matches key expected by Checkout.jsx
+        cartItems: cart, // Backwards compatibility protection fallback
         addToCart,
         updateQuantity,
         removeItem,
+        clearCart, // 🎯 Now exposed to allow checkout fulfillment state drops
         cartCount,
         cartTotal,
       }}
@@ -67,4 +81,12 @@ export function CartProvider({ children }) {
   );
 }
 
-export const useCart = () => useContext(CartContext);
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error(
+      "useCart hooks must execute encapsulated within a structurally valid CartProvider element wrapper.",
+    );
+  }
+  return context;
+};

@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "./Logo.jsx";
-import Logopng from "../images/bryzen.png";
+
 import { NavLink } from "react-router-dom";
 
 function Header(props) {
@@ -26,14 +26,17 @@ function Header(props) {
               Products
             </NavLink>
             <NavLink
-              to="/shirts"
+              to="/cart"
               className="font-bold mr-5  cursor-pointer transition-colors"
             >
-              Shirts
+              Cart
             </NavLink>
-            <a className="font-bold mr-5  cursor-pointer transition-colors">
-              Pants
-            </a>
+            <NavLink
+              to="/checkout"
+              className="font-bold mr-5  cursor-pointer transition-colors"
+            >
+              Checkout
+            </NavLink>
           </nav>
 
           {/* --- TOGGLE SWITCH UI --- */}

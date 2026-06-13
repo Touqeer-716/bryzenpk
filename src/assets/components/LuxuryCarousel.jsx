@@ -1,24 +1,26 @@
 import React from "react";
-// 🧵 Import the fully managed React native carousel components
 import { Carousel } from "react-bootstrap";
 
 export default function LuxuryCarousel() {
+  let img1 = "/uploads/products/hero1.jpeg";
+  let img2 = "/uploads/products/hero2.jpeg";
+  let img3 = "/uploads/products/1781375082_2c4acb33afd3af3fc1e1.jpeg";
+
   return (
     <div className="w-full h-[50vh] md:h-[70vh] bg-stone-900 overflow-hidden relative">
       <Carousel
-        fade // ✨ Optional: Creates an ultra-smooth crossfade instead of a basic slide
+        fade
         indicators={true}
-        interval={3000} // Slides switch automatically every 5 seconds
+        interval={3000} // Switches tracks smoothly every 3 seconds
         controls={true}
         className="h-full w-full custom-luxury-carousel"
       >
         {/* --- SLIDE 1 --- */}
         <Carousel.Item className="h-[50vh] md:h-[70vh] relative group">
-          {/* 🌑 Velvet Shadow Overlay for deep dark-mode typography contrast */}
           <div className="absolute inset-0 bg-linear-to-r from-stone-950/70 via-stone-950/40 to-transparent z-10" />
 
           <img
-            src="https://bryzenpk.com/wp-content/uploads/2026/03/hero_white_shirt1773271066825.jpg-scaled.jpeg"
+            src={img1}
             className="d-block w-full h-full object-cover transition-transform duration-[8s] ease-out scale-100 group-hover:scale-105"
             alt="Urban Off-White Drop Shoulder Tee"
           />
@@ -46,7 +48,7 @@ export default function LuxuryCarousel() {
           <div className="absolute inset-0 bg-linear-to-r from-stone-950/70 via-stone-950/40 to-transparent z-10" />
 
           <img
-            src="https://bryzenpk.com/wp-content/uploads/2026/03/black_shirt1773271013533.jpg-scaled.jpeg"
+            src={img2}
             className="d-block w-full h-full object-cover transition-transform duration-[8s] ease-out scale-100 group-hover:scale-105"
             alt="Oversized Comfort"
           />
@@ -71,25 +73,25 @@ export default function LuxuryCarousel() {
         </Carousel.Item>
       </Carousel>
 
-      {/* Modern custom styling to clean up arrow designs globally */}
+      {/* 🎯 FIXED: Injected the exclamation points (!) into your css important flags */}
       <style>{`
         .custom-luxury-carousel .carousel-indicators [data-bs-target] {
-          width: 32px important;
-          height: 2px important;
-          background-color: rgba(255,255,255,0.4) important;
+          width: 32px !important;
+          height: 2px !important;
+          background-color: rgba(255,255,255,0.4) !important;
         }
         .custom-luxury-carousel .carousel-indicators .active {
-          background-color: #ebdccb important;
+          background-color: #ebdccb !important;
         }
         .custom-luxury-carousel .carousel-control-prev,
         .custom-luxury-carousel .carousel-control-next {
-          width: 8% important;
-          opacity: 0;
-          transition: opacity 0.3s ease;
+          width: 8% !important;
+          opacity: 0 !important;
+          transition: opacity 0.3s ease !important;
         }
         .custom-luxury-carousel:hover .carousel-control-prev,
         .custom-luxury-carousel:hover .carousel-control-next {
-          opacity: 0.8;
+          opacity: 0.8 !important;
         }
       `}</style>
     </div>

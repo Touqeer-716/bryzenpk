@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import Card from "./card.jsx";
+import Card from "./Card.jsx";
 export default function Products() {
   // 1. Create a state variable to hold our products array
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const api = "/bryzenpk/api/products";
+  const api = "/api/products";
   // 2. Run the fetch operation when the component loads on the screen
   useEffect(() => {
     fetch(api) // Intercepted by Vite proxy locally, routes normally on server
@@ -40,7 +40,7 @@ export default function Products() {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {products.map((product) => (
-          <div key={product.id}>
+          <div key={product.id} className="h-full">
             <Card product={product} />
           </div>
         ))}
